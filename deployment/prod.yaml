@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: quarkus-api
+  name: quarkus-api-prod
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: quarkus-api-stage
+    namespace: quarkus-api-prod
     server: https://kubernetes.default.svc 
   project: default 
   source: 
