@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quarkus-api
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: quarkus-api-stage
+    server: https://kubernetes.default.svc 
+  project: default 
+  source: 
+    path: manifests
+    repoURL: https://github.com/gmidha1/quarkus-gitops
+    targetRevision: main
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
